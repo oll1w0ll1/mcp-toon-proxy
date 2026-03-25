@@ -1,4 +1,4 @@
-module mcp-toon-proxy
+module github.com/oll1w0ll1/mcp-toon-proxy
 
 go 1.26.1
 
