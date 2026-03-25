@@ -11,9 +11,9 @@ Three transport modes are supported:
 cd mcp-toon-proxy
 go build -o mcp-toon-proxy .
 ```
-Optionally, install to your Go bin directory so it is on your `$PATH`:
+Optionally, install directly from GitHub so it is on your `$PATH`:
 ```sh
-go install .
+go install github.com/oll1w0ll1/mcp-toon-proxy/mcp-toon-proxy@latest
 ```
 ## Usage
 ```
