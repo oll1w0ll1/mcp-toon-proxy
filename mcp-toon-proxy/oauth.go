@@ -185,9 +185,9 @@ func (m *oauthManager) discoverMetadata(ctx context.Context, resp *http.Response
 func (m *oauthManager) dynamicRegister(ctx context.Context, client *http.Client, redirectURI string) error {
 	regBody := map[string]any{
 		"client_name":                "mcp-toon-proxy",
-		"redirect_uris":             []string{redirectURI},
-		"grant_types":               []string{"authorization_code", "refresh_token"},
-		"response_types":            []string{"code"},
+		"redirect_uris":              []string{redirectURI},
+		"grant_types":                []string{"authorization_code", "refresh_token"},
+		"response_types":             []string{"code"},
 		"token_endpoint_auth_method": "none",
 	}
 	body, _ := json.Marshal(regBody)
@@ -499,8 +499,10 @@ func openBrowser(url string) {
 		cmd = exec.Command("open", url)
 	case "linux":
 		cmd = exec.Command("xdg-open", url)
+	case "windows":
+		cmd = exec.Command("rundll32", "url.dll, FileProtocolHandler", url)
 	default:
-		cmd = exec.Command("open", url)
+		cmd = exec.Command("xdg-open", url)
 	}
 	cmd.Start()
 }
